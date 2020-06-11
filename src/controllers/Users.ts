@@ -18,7 +18,8 @@ export const getUserDetails = async function (req: Request, res: Response) {
         await axios.get(url + '/users/' + req.params.username,
             {
                 headers: {
-                    Accept: "application/vnd.github.v3+json"
+                    Accept: "application/vnd.github.v3+json",
+                    'Access-Control-Allow-Origin': '*'
                 },
             }
         )
@@ -52,7 +53,8 @@ export const getUserRepos = async function (req: Request, res: Response) {
                     type: "all"
                 },
                 headers: {
-                    Accept: "application/vnd.github.nebula-preview+json"
+                    Accept: "application/vnd.github.nebula-preview+json",
+                    'Access-Control-Allow-Origin': '*'
                 },
             }
         )
@@ -86,7 +88,9 @@ export const getUserList = async function (req: Request, res: Response) {
                     since: "100"
                 },
                 headers: {
-                    Accept: "application/vnd.github.v3+json"
+
+                    Accept: "application/vnd.github.v3+json",
+                    'Access-Control-Allow-Origin': '*'
                 },
             }
         )
