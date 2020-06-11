@@ -2,7 +2,7 @@
 
 ### Installation
 ```
-   $ yarn install
+   $ npm install or $ yarn install
    $ yarn dev
 ```
 
