@@ -1,4 +1,6 @@
 import { Request, Response } from "express";
+import parseLinkHeader from '../utils/parseLinkHeader';
+
 const axios = require('axios');
 const CircularJSON = require('circular-json');
 
@@ -89,11 +91,10 @@ export const getUserList = async function (req: Request, res: Response) {
             }
         )
             .then((response: any) => {
-                console.log(response.headers.link);
                 const str = CircularJSON.stringify(response.data);
                 const dataToReturn = {
                     users_list: JSON.parse(str, response.headers.link),
-                    link_next_page: response.headers.link
+                    links: parseLinkHeader(response.headers.link)
                 }
                 return res.send(dataToReturn);
             })
